@@ -1,0 +1,21 @@
+
+tipo de transaccion 
+No.
+total
+
+SELECT f.id_factura, do.id_det_orden, tor.id_orden FROM `factura` AS f
+INNER JOIN detalle_orden As do ON f.id_detalle_orden = do.id_det_orden
+INNER JOIN toma_orden AS tor ON do.id_det_orden = tor.id_det_orden
+;
+
+//select de ids y precio where f.id_factura
+SELECT f.id_factura, do.id_det_orden, tor.id_orden, tor.precio FROM `factura` AS f
+INNER JOIN detalle_orden As do ON f.id_detalle_orden = do.id_det_orden
+INNER JOIN toma_orden AS tor ON do.id_det_orden = tor.id_det_orden
+WHERE f.id_factura = 159;
+
+//suma de precio por f.id_factura
+SELECT SUM(tor.precio) FROM `factura` AS f
+INNER JOIN detalle_orden As do ON f.id_detalle_orden = do.id_det_orden
+INNER JOIN toma_orden AS tor ON do.id_det_orden = tor.id_det_orden
+WHERE f.id_factura = 159;
